@@ -1,0 +1,236 @@
+<!DOCTYPE html> 
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Responsive Landing Page</title>
+
+  <style>
+    /* Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      line-height: 1.6;
+      background: #053fc6;
+      color: white;
+      scroll-behavior: smooth;
+    }
+
+    /* Navbar */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 10%;
+      background: transparent;
+      transition: 0.3s;
+      z-index: 1000;
+    }
+
+    nav.scrolled {
+      background: rgba(15, 23, 42, 0.95);
+      box-shadow: 0 3px 10px rgba(0,0,0,0.5);
+    }
+
+    nav .logo {
+      font-size: 22px;
+      font-weight: bold;
+      color: #9e38f8;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+    }
+
+    nav ul li {
+      margin-left: 30px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: white;
+      padding: 6px 12px;
+      border-radius: 5px;
+    }
+
+    nav ul li a:hover {
+      background: #5838f8;
+      color: #0f172a;
+    }
+
+    /* Hero */
+    .hero {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      background: linear-gradient(135deg, #1e3a8a, #0f172a);
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      color: #9e38f8;
+    }
+
+    .btn {
+      padding: 12px 24px;
+      background: #4238f8;
+      border: none;
+      border-radius: 25px;
+      cursor: pointer;
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      color: #3b38f8;
+      margin-bottom: 20px;
+    }
+
+    section p {
+      text-align: center;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    /* Feedback Form */
+    .feedback-form {
+      max-width: 600px;
+      margin: 40px auto 0;
+      background: rgba(15, 23, 42, 0.9);
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    }
+
+    .feedback-form input,
+    .feedback-form textarea {
+      width: 100%;
+      padding: 14px;
+      margin-bottom: 15px;
+      border-radius: 8px;
+      border: none;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .feedback-form textarea {
+      resize: none;
+      height: 120px;
+    }
+
+    .feedback-form button {
+      width: 100%;
+      padding: 14px;
+      background: #9e38f8;
+      border: none;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .feedback-form button:hover {
+      background: white;
+      color: #0f172a;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #1e293b;
+      margin-top: 40px;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav id="navbar">
+    <div class="logo">MyPage</div>
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#feedback">Feedback</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero -->
+  <section class="hero" id="home">
+    <div>
+      <h1>Welcome to MyPage</h1>
+      <p>Modern, responsive, and interactive websites</p>
+      <button class="btn">Get Started</button>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <h2>About Us</h2>
+    <p>We create responsive and user-friendly websites.</p>
+  </section>
+
+  <!-- Services -->
+  <section id="services">
+    <h2>Our Services</h2>
+    <p>Web Development, UI/UX Design, and Digital Solutions.</p>
+  </section>
+
+  <!-- Feedback Section -->
+  <section id="feedback">
+    <h2>Feedback</h2>
+    <p>We value your feedback. Please share your thoughts with us.</p>
+
+    <!-- Formspree Form -->
+    <form 
+      class="feedback-form" 
+      action="https://formspree.io/f/mnjqyvdl" 
+      method="POST"
+    >
+      <input type="text" name="name" placeholder="Your Name" required>
+      <input type="email" name="email" placeholder="Your Email" required>
+      <input type="text" name="subject" placeholder="Subject" required>
+      <textarea name="message" placeholder="Your Feedback" required></textarea>
+      <button type="submit">Send Feedback</button>
+    </form>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    © 2025 Technology. All Rights Reserved.
+  </footer>
+
+  <script>
+    const navbar = document.getElementById("navbar");
+    window.addEventListener("scroll", () => {
+      navbar.classList.toggle("scrolled", window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>
